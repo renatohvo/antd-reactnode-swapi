@@ -1,0 +1,22 @@
+header {
+    background: #ffffff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: inherit;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 300px;
+}
+
+.logo-container p {
+    font-size: 14px;
+    font-weight: 300;
+}
