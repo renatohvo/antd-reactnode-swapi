@@ -1,8 +1,7 @@
 header {
-    /* background: #ffffff; */
-    padding: 24px;
+    padding: 20px;
     background: colorBgContainer;
-    height: 150px;
+    height: 110px;
     display: flexbox;
     align-items: center;
     justify-content: center;
@@ -15,10 +14,5 @@ header {
 }
 
 .logo-container img {
-    width: 235px;
-}
-
-.logo-container p {
-    font-size: 14px;
-    font-weight: 300;
+    width: 200px;
 }

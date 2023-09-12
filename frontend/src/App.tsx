@@ -3,7 +3,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Button, Checkbox, Input, Layout, Menu, Table, theme } from 'antd';
+import { Checkbox, Input, Layout, Menu, Table, theme } from 'antd';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
@@ -23,6 +23,8 @@ const App: React.FC = () => {
 
   const [peoples, setPeoples] = useState<People[]>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const columns: ColumnsType<People> = [
     {
@@ -154,31 +156,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Layout hasSider>
-      <Sider
-        style={{
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          bottom: 0,
-        }}
-      >
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['buscar']}
+    <Layout hasSider style={{ minHeight: '100vh' }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['todos']}
           items={[
-            {
-              label: <Input.Search placeholder="Buscar..." onChange={handleInputChange} ></Input.Search>,
-              key: 'buscar',
-            },
-            {
-              label: 'Favoritos',
-              key: 'favoritos',
-              icon: React.createElement(UserOutlined),
-              onClick: () => {
-                handleListFavoritesClick(1)
-              }
-            },
             {
               label: 'Todos',
               key: 'todos',
@@ -187,25 +168,34 @@ const App: React.FC = () => {
                 handleListAllClick()
               }
             },
+            {
+              label: 'Favoritos',
+              key: 'favoritos',
+              icon: React.createElement(UserOutlined),
+              onClick: () => {
+                handleListFavoritesClick(1)
+              }
+            }
           ]}
         ></Menu>
       </Sider>
-      <Layout className="site-layout" style={{ marginLeft: 200 }}>
+      <Layout className="site-layout">
         <ToastContainer />
         <Header />
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-          <div style={{ padding: 24, background: colorBgContainer }}>
-
-            <div>
-              <Table
-                columns={columns}
-                dataSource={peoples}
-              />
-            </div>
-
+        <Content style={{ margin: '24px 10px 12px' }}>
+          
+          <div style={{ marginBottom: 10, maxWidth: 250 }}>
+            <Input.Search placeholder="Buscar..." onChange={handleInputChange} ></Input.Search>
           </div>
+
+          <div style={{ padding: 10, minWidth: 250, background: colorBgContainer }}>
+            <div>
+              <Table columns={columns} dataSource={peoples} />
+            </div>
+          </div>
+          
         </Content>
-        <Footer style={{ textAlign: 'center', backgroundColor: '#008cff' }}>Ant Design ©2023 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center', backgroundColor: '#008cff' }}>Ant Design ©2023 Created by Ant UED - Desenvolvido por <a href="https://linkedin.com/in/renatohvo">@renatohvo</a></Footer>
       </Layout>
     </Layout>
   );
