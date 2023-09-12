@@ -156,7 +156,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Layout hasSider style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['todos']}
           items={[
@@ -179,23 +179,24 @@ const App: React.FC = () => {
           ]}
         ></Menu>
       </Sider>
-      <Layout className="site-layout">
+      <Layout>
+
         <ToastContainer />
         <Header />
+
         <Content style={{ margin: '24px 10px 12px' }}>
-          
           <div style={{ marginBottom: 10, maxWidth: 250 }}>
             <Input.Search placeholder="Buscar..." onChange={handleInputChange} ></Input.Search>
           </div>
-
           <div style={{ padding: 10, minWidth: 250, background: colorBgContainer }}>
             <div>
               <Table columns={columns} dataSource={peoples} />
             </div>
           </div>
-          
         </Content>
+
         <Footer style={{ textAlign: 'center', backgroundColor: '#008cff' }}>Ant Design ©2023 Created by Ant UED - Desenvolvido por <a href="https://linkedin.com/in/renatohvo">@renatohvo</a></Footer>
+      
       </Layout>
     </Layout>
   );
