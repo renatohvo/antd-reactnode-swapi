@@ -12,7 +12,6 @@ import { useEffect, useState } from 'react';
 import { People } from './models/people';
 import { BASE_URL } from './util/request';
 import { toast } from 'react-toastify';
-import './components/PeopleCard/style.css';
 import type { ColumnsType } from 'antd/es/table';
 
 const { Content, Footer, Sider } = Layout;
