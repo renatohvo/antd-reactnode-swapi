@@ -1,9 +1,11 @@
 import React from 'react';
 import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Checkbox, Input, Layout, Menu, Table, theme } from 'antd';
+import { Button, Checkbox, Input, Layout, Menu, Table, theme } from 'antd';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
@@ -157,7 +159,7 @@ const App: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['todos']}
           items={[
             {
@@ -182,6 +184,16 @@ const App: React.FC = () => {
       <Layout style={{ minWidth: 250, minHeight: 360 }}>
 
         <ToastContainer />
+        <Button
+          type="text"
+          icon={collapsed ? <MenuUnfoldOutlined rev={undefined} /> : <MenuFoldOutlined rev={undefined} />}
+          onClick={() => setCollapsed(!collapsed)}
+          style={{
+            fontSize: '16px',
+            width: 64,
+            height: 64,
+          }}
+        />
         <Header />
 
         <Content style={{ margin: '24px 10px 12px' }}>
