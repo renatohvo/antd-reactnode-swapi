@@ -179,16 +179,16 @@ const App: React.FC = () => {
           ]}
         ></Menu>
       </Sider>
-      <Layout>
+      <Layout style={{ minWidth: 250, minHeight: 360 }}>
 
         <ToastContainer />
         <Header />
 
-        <Content style={{ margin: '24px 10px 12px', minWidth: 250 }}>
-          <div style={{ marginBottom: 10, maxWidth: 250 }}>
+        <Content style={{ margin: '24px 10px 12px' }}>
+          <div style={{ marginBottom: 10 }}>
             <Input.Search placeholder="Buscar..." onChange={handleInputChange} ></Input.Search>
           </div>
-          <div style={{ padding: 10, minWidth: 250, minHeight: 360, background: colorBgContainer }}>
+          <div style={{ padding: 10, background: colorBgContainer }}>
             <Table columns={columns} dataSource={peoples} />
           </div>
         </Content>
