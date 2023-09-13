@@ -184,19 +184,17 @@ const App: React.FC = () => {
         <ToastContainer />
         <Header />
 
-        <Content style={{ margin: '24px 10px 12px' }}>
+        <Content style={{ margin: '24px 10px 12px', minWidth: 250 }}>
           <div style={{ marginBottom: 10, maxWidth: 250 }}>
             <Input.Search placeholder="Buscar..." onChange={handleInputChange} ></Input.Search>
           </div>
-          <div style={{ padding: 10, minWidth: 250, background: colorBgContainer }}>
-            <div>
-              <Table columns={columns} dataSource={peoples} />
-            </div>
+          <div style={{ padding: 10, minWidth: 250, minHeight: 360, background: colorBgContainer }}>
+            <Table columns={columns} dataSource={peoples} />
           </div>
         </Content>
 
         <Footer style={{ textAlign: 'center', backgroundColor: '#008cff' }}>Ant Design ©2023 Created by Ant UED - Desenvolvido por <a href="https://linkedin.com/in/renatohvo">@renatohvo</a></Footer>
-      
+
       </Layout>
     </Layout>
   );
