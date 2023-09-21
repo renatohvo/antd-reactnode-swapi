@@ -1,4 +1,4 @@
-export interface People {
+export type People = {
     key: React.Key;
     id: number;
     name: string;
